@@ -13,6 +13,7 @@ const routes: Routes = [
           import('../discover/discover.module').then(
             (m) => m.DiscoverPageModule
           ),
+        pathMatch: 'prefix',
       },
       {
         path: 'appointments',

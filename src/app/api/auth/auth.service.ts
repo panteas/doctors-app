@@ -6,7 +6,7 @@ import {
   AngularFirestore,
 } from '@angular/fire/compat/firestore';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { User } from 'models/user';
 import * as firebase from 'firebase/compat/app';
 import * as fireabse from 'firebase/compat';
@@ -17,6 +17,7 @@ import { catchError, flatMap, map, mergeMap, take } from 'rxjs/operators';
 import { ToastService } from '../toast.service';
 import { formatNumber } from '@angular/common';
 import { Doctor } from 'models/doctor';
+import { NavController } from '@ionic/angular';
 
 @Injectable({
   providedIn: 'root',
@@ -27,9 +28,11 @@ export class AuthService {
   doctors: Observable<Doctor[]>;
 
   constructor(
+    private activatedRoute: ActivatedRoute,
     private auth: AngularFireAuth,
     private db: AngularFirestore,
-    private route: Router,
+    private router: Router,
+    private navController: NavController,
     private toastService: ToastService
   ) {
     this.auth.authState.subscribe((user) => {
@@ -51,7 +54,7 @@ export class AuthService {
           'user',
           userCredential.user.displayName
         );
-        this.route.navigate(['/tabs/discover']);
+        this.router.navigate(['tabs/discover']);
       })
       .catch((err) => this.errorHandler(err));
   }
@@ -61,7 +64,7 @@ export class AuthService {
       .createUserWithEmailAndPassword(user.email, user.password)
       .then((userCredentials) => {
         this.updateUserData(userCredentials.user, 'user', user.fullName);
-        this.route.navigate(['/tabs/discover']);
+        this.router.navigate(['tabs/discover']);
       })
       .catch((err) => this.errorHandler(err));
   }
@@ -77,14 +80,18 @@ export class AuthService {
   login(user) {
     this.auth
       .signInWithEmailAndPassword(user.email, user.password)
-      .then((_) => this.route.navigate(['tabs/discover']))
+      .then((_) => {
+        this.router.navigate(['tabs', 'discover'], {
+          relativeTo: this.activatedRoute,
+        });
+      })
       .catch((err) => this.errorHandler(err));
   }
 
   logout() {
     return this.auth.signOut().then((_) => {
       localStorage.removeItem('user');
-      this.route.navigate(['/login']);
+      this.router.navigate(['/login']);
     });
   }
 
