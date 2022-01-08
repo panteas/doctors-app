@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+    <ion-item lines="full">
+      <ion-label position="floating">Email</ion-label>
+      <ion-input
+        ngModel
+        name="email"
+        type="text"
+        placeholder="e.g. joe@rogan.com"
+        required
+      ></ion-input>
+    </ion-item>
+
+    <ion-item lines="full">
+      <ion-label position="floating">Password</ion-label>
+      <ion-input type="password" required name="password" ngModel></ion-input>
+    </ion-item>
+
+    <ion-row>
+      <ion-col>
+        <ion-button type="submit" color="primary" expand="block"
+          >Log In</ion-button
+        >
+        <ion-button
+          color="tertiary"
+          fill="outline"
+          expand="block"
+          (click)="onGoogleLogin()"
+          ><ion-icon slot="start" name="logo-google"></ion-icon>Log In with
+          Google</ion-button
+        >
+        <ion-button
+          color="primary"
+          fill="clear"
+          expand="block"
+          [routerLink]="['/signup']"
+          >Sign up</ion-button
+        >
+        <ion-button
+          [routerLink]="['/forgot-password']"
+          class="forgot-pass"
+          expand="block"
+          color="medium"
+          fill="clear"
+          >Forgot Password?</ion-button
+        >
+      </ion-col>
+    </ion-row>
+  </form>
+</ion-content>

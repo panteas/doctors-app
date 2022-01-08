@@ -1,0 +1,41 @@
+<ion-header collapse="condense">
+  <ion-toolbar>
+    <ion-title size="medium">Discover</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-slides pager="true" [options]="sliderConfig">
+    <ion-slide *ngFor="let options of slideOpts">
+      <ion-card
+        *ngIf="options !== undefined"
+        class="popular ion-text-start ion-padding"
+        [routerLink]="['/', 'doctor', options.uid]"
+        routerDirection="forward"
+      >
+        <h1>{{options.fullName}}</h1>
+        <ion-card-subtitle>{{options.specialisation}}</ion-card-subtitle>
+        <ion-row
+          ><ion-icon name="location-outline"></ion-icon
+          >{{options.city}}</ion-row
+        >
+        <ion-row
+          ><ion-icon name="pricetag-outline"></ion-icon
+          >{{options.startingPrice}} lei</ion-row
+        >
+      </ion-card>
+    </ion-slide>
+  </ion-slides>
+
+  <h2 class="subtitle">Specialisations</h2>
+
+  <ion-list *ngFor="let s of specialisations">
+    <ion-item
+      detail
+      routerDirection="forward"
+      [routerLink]="['/', 'specialisation', s]"
+    >
+      <h3>{{s}}</h3>
+    </ion-item>
+  </ion-list>
+</ion-content>

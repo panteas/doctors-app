@@ -1,0 +1,17 @@
+<ion-header collapse="condense">
+  <ion-toolbar>
+    <ion-title size="medium">Profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list>
+    <ion-item detail (click)="resetPass()">
+      <ion-icon name="lock-open-outline"></ion-icon>
+      Reset password
+    </ion-item>
+    <ion-item detail (click)="logout()">
+      <ion-icon name="log-out-outline"></ion-icon> Logout</ion-item
+    >
+  </ion-list>
+</ion-content>

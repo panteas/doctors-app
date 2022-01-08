@@ -1,0 +1,26 @@
+<ion-header *ngIf="doctor !== undefined">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/discover"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Doctor's details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="doctor !== undefined">
+  <ion-grid color="light">
+    <ion-row>
+      <h1>{{doctor.fullName}}</h1>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-icon name="location-outline"></ion-icon> {{doctor.city}}
+      </ion-col>
+      <ion-col class="col-right"> from {{doctor.startingPrice}} RON </ion-col>
+    </ion-row>
+    <ion-row> </ion-row>
+    <ion-row>
+      <ion-button (click)="openModal()">Make an appointment</ion-button>
+    </ion-row>
+  </ion-grid>
+</ion-content>
