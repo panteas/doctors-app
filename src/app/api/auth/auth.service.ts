@@ -81,7 +81,7 @@ export class AuthService {
     this.auth
       .signInWithEmailAndPassword(user.email, user.password)
       .then((_) => {
-        this.router.navigate(['tabs', 'discover'], {
+        this.router.navigate(['../tabs/discover'], {
           relativeTo: this.activatedRoute,
         });
       })

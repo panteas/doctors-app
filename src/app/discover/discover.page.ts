@@ -17,7 +17,7 @@ export class DiscoverPage {
   currentUser;
 
   sliderConfig = {
-    slidesPerView: 1.5,
+    slidesPerView: 1.3,
     spaceBetween: 8,
     navigation: true,
   };

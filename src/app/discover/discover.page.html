@@ -13,21 +13,30 @@
         [routerLink]="['/', 'doctor', options.uid]"
         routerDirection="forward"
       >
-        <h1>{{options.fullName}}</h1>
-        <ion-card-subtitle>{{options.specialisation}}</ion-card-subtitle>
-        <ion-row
-          ><ion-icon name="location-outline"></ion-icon
-          >{{options.city}}</ion-row
-        >
+        <img
+          class="card-img"
+          src="../../assets/alt-5ae892611bf1a-5168-1472832016f2509f3889266323039a33@1x.jpg"
+        />
+        <ion-card-header>
+          <ion-card-subtitle>{{options.specialisation}}</ion-card-subtitle>
+          <ion-card-title>{{options.fullName}}</ion-card-title>
+        </ion-card-header>
         <ion-row
           ><ion-icon name="pricetag-outline"></ion-icon
-          >{{options.startingPrice}} lei</ion-row
+          >{{options.city}}</ion-row
+        >
+        <ion-row ion-justify-content-between>
+          <ion-col>
+            <!-- <ion-icon name="location-outline"></ion-icon>-->
+            Starting from:</ion-col
+          >
+          <ion-col>{{options.startingPrice}} lei</ion-col></ion-row
         >
       </ion-card>
     </ion-slide>
   </ion-slides>
 
-  <h2 class="subtitle">Specialisations</h2>
+  <h4 class="subtitle">Specialisations</h4>
 
   <ion-list *ngFor="let s of specialisations">
     <ion-item

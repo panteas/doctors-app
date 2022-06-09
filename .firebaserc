@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "doctor-appointment-d790f": {
+      "hosting": {
+        "app": [
+          "doctor-appointment-d790f"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "doctor-appointment-d790f"
+  }
+}

@@ -6,9 +6,8 @@ import { SpecialisationPage } from './specialisation.page';
 
 const routes: Routes = [
   {
-    path: 'specialisation',
+    path: ':id',
     component: SpecialisationPage,
-    pathMatch: 'prefix',
   },
 ];
 

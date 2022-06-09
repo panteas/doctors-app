@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { LoginPage } from './auth/login/login.page';
 
 const routes: Routes = [
   {
     path: '',
     loadChildren: () =>
       import('./tabs/tabs.module').then((m) => m.TabsPageModule),
+    // import('./auth/login/login.module').then((m) => m.LoginPageModule),
   },
   {
     path: 'login',
@@ -36,6 +36,11 @@ const routes: Routes = [
       import('./book-doctor/book-doctor.module').then(
         (m) => m.BookDoctorPageModule
       ),
+  },
+  {
+    path: 'tabs',
+    loadChildren: () =>
+      import('./tabs/tabs.module').then((m) => m.TabsPageModule),
   },
 ];
 @NgModule({

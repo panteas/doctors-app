@@ -1,9 +1,38 @@
 ion-card {
-  max-width: 80%;
   align-items: stretch;
   height: 100% !important;
 }
 
+ion-card-header {
+  padding-left: 0px !important;
+}
+
 .subtitle {
   padding-left: 16px;
+  margin-bottom: 12px;
+  margin-top: 24px;
+}
+
+ion-icon {
+  margin-right: 4px;
+  margin-bottom: 8px;
+}
+
+.card-img {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+ion-slides {
+  margin-bottom: 24px;
+}
+
+.bulletClass {
+  margin-top: 8px;
+}
+
+.price-grid {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }

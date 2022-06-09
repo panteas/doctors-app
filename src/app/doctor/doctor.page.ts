@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, RouterOutlet } from '@angular/router';
+import { ActivatedRoute, Router, RouterOutlet } from '@angular/router';
 import { NavController } from '@ionic/angular';
 import { AuthService } from 'app/api/auth/auth.service';
 import { Doctor } from 'models/doctor';
@@ -19,6 +19,7 @@ export class DoctorPage implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private authService: AuthService,
     private modal: ModalController
   ) {}

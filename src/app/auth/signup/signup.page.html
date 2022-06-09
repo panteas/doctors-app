@@ -1,22 +1,16 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-buttons>
-      <ion-icon
-        slot="start"
-        name="arrow-back"
-        color="secondary"
-        router-direction="back"
-        [routerLink]="['/login']"
-      >
-      </ion-icon>
-    </ion-buttons>
-    <ion-title>Sign Up</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
+  <div class="brand-assets">
+    <div class="brand-icon">
+      <ion-img src="../../../assets/icon/Doctoria - with text.svg"></ion-img>
+    </div>
+
+    <div class="brand-slogan">
+      <p>Reliable doctors. Easy appointment.</p>
+    </div>
+  </div>
+
   <form #f="ngForm" (ngSubmit)="onSubmit(f)">
-    <ion-item lines="full">
+    <ion-item class="item-content" lines="full">
       <ion-label position="floating">Full Name</ion-label>
       <ion-input
         type="text"
@@ -27,7 +21,7 @@
       ></ion-input>
     </ion-item>
 
-    <ion-item lines="full">
+    <ion-item class="item-content" lines="full">
       <ion-label position="floating">Email</ion-label>
       <ion-input
         type="text"
@@ -38,20 +32,28 @@
       ></ion-input>
     </ion-item>
 
-    <ion-item lines="full">
+    <ion-item class="item-content" lines="full">
       <ion-label position="floating">Password</ion-label>
       <ion-input type="password" required ngModel name="password"></ion-input>
     </ion-item>
 
-    <ion-item lines="full">
+    <ion-item class="item-content" lines="full">
       <ion-label position="floating">Repeat password</ion-label>
       <ion-input type="password" required></ion-input>
     </ion-item>
 
-    <ion-row>
+    <ion-row class="bttns-row">
       <ion-col>
         <ion-button type="submit" color="primary" expand="block"
           >Sign Up</ion-button
+        >
+        <ion-button
+          color="medium"
+          fill="clear"
+          expand="block"
+          router-direction="back"
+          [routerLink]="['/login']"
+          >Already have an account? Log into it.</ion-button
         >
       </ion-col>
     </ion-row>
